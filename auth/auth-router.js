@@ -26,11 +26,11 @@ function isValid(user) {
 
 router.post('/register', (req, res) => {
   const credentials = req.body;
-if(ivValid(credentials)){
+if(isValid(credentials)){
   const rounds = process.env.BCRYPT_ROUNDS || 8
   const hash = bcryptjs.hashSync(credentials.password, rounds);
   credentials.password = hash;
-  Users.add(crdentials)
+  Users.add(credentials)
   .then(user=>{
     res.status(201).json({ data: user})
   })

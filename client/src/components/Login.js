@@ -29,7 +29,9 @@ const Login =(props) => {
         localStorage.setItem('token', JSON.stringify(res.data.token));
         match.push(`/jokes`)
     })
-    .catch()
+    .catch(err =>{
+      console.log(err)
+    })
   }
   const changeHandler = function(event){
     const name = event.target.name
